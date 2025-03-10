@@ -10,93 +10,93 @@
 - The file path of the selected image is stored for later use.
 
 2. Compressing the Image
-- The user clicks the "Compress Image" button to compress the image.
+- The user clicks the <b>"Compress Image"</b> button to compress the image.
 
-- For PNG images:
+- For <b>PNG</b> images:
 
-  * The image is loaded into a TPngImage component, which preserves transparency.
+  * The image is loaded into a <code>TPngImage</code> component, which preserves transparency.
 
-  * The compressed image is displayed in the Image2 component.
+  * The compressed image is displayed in the <code>Image2</code> component.
 
-- For JPEG images:
+- For <b>JPEG</b> images:
 
-  * The image is loaded into a TJPEGImage component, and the compression quality is adjusted based on the TrackBar value.
+  * The image is loaded into a <code>TJPEGImage</code> component, and the compression quality is adjusted based on the <code>TrackBar</code> value.
 
-  * The compressed image is displayed in the Image2 component.
+  * The compressed image is displayed in the <code>Image2</code> component.
 
 3. Saving the Compressed Image
-- The user clicks the "Save Image" button to save the compressed image.
+- The user clicks the <b>"Save Image"</b> button to save the compressed image.
 
-- The compressed image is saved with the original file name appended with -compressed (e.g., image-compressed.png).
+- The compressed image is saved with the original file name appended with <code>-compressed</code> (e.g., <code>image-compressed.png</code>).
 
-- The image is saved directly from the TPicture component, which ensures that the file size is reduced by re-encoding the image.
+- The image is saved directly from the <code>TPicture</code> component, which ensures that the file size is reduced by re-encoding the image.
 
 ## How File Size is Reduced
 1. Direct Re-encoding
-- When the image is saved, it is re-encoded directly from the TPicture component. This process removes unnecessary metadata and optimizes the image structure, resulting in a smaller file size.
+- When the image is saved, it is re-encoded directly from the <code>TPicture</code> component. This process removes unnecessary metadata and optimizes the image structure, resulting in a smaller file size.
 
 2. Compression for JPEG
-- For JPEG images, the CompressionQuality property of the TJPEGImage component is used to adjust the quality. Lower quality values result in smaller file sizes but may reduce image clarity.
+- For JPEG images, the <code>CompressionQuality</code> property of the <code>TJPEGImage</code> component is used to adjust the quality. Lower quality values result in smaller file sizes but may reduce image clarity.
 
 3. Transparency Preservation for PNG
-- For PNG images, the TPngImage component is used to preserve transparency. The image is saved without altering its transparency, but the file size is reduced by re-encoding the image.
+- For PNG images, the <code>TPngImage</code> component is used to preserve transparency. The image is saved without altering its transparency, but the file size is reduced by re-encoding the image.
 
 ## Features
-- Supports JPEG and PNG Formats: The program can handle both JPEG and PNG images.
+- <b>Supports JPEG and PNG Formats</b>: The program can handle both JPEG and PNG images.
 
-- Preserves Transparency: PNG images retain their transparency during compression.
+- <b>Preserves Transparency</b>: PNG images retain their transparency during compression.
 
-- Adjustable Compression Quality: For JPEG images, the compression quality can be adjusted using the TrackBar.
+- <b>Adjustable Compression Quality</b>: For JPEG images, the compression quality can be adjusted using the <code>TrackBar</code>.
 
-- Simple and Easy to Use: The user interface is straightforward, with buttons for opening, compressing, and saving images.
+- <b>Simple and Easy to Use</b>: The user interface is straightforward, with buttons for opening, compressing, and saving images.
 
 ## Limitations
-- No Advanced Compression: The program does not use advanced compression algorithms (e.g., pngquant or OptiPNG), so the file size reduction for PNG images may be limited.
+- <b>No Advanced Compression</b>: The program does not use advanced compression algorithms (e.g., <code>pngquant</code> or <code>OptiPNG</code>), so the file size reduction for PNG images may be limited.
 
-- Quality vs. File Size Trade-off: For JPEG images, reducing the compression quality may result in a loss of image clarity.
+- <b>Quality vs. File Size Trade-off</b>: For JPEG images, reducing the compression quality may result in a loss of image clarity.
 
 ## How to Use
-1. Open an Image:
+1. <b>Open an Image</b>:
 
-  * Click the "Open Image" button and select an image file (JPEG or PNG).
+  * Click the <b>"Open Image"</b> button and select an image file (JPEG or PNG).
 
-2. Compress the Image:
+2. <b>Compress the Image</b>:
 
-  * Click the "Compress Image" button to compress the image.
+  * Click the <b>"Compress Image"</b> button to compress the image.
 
-  * For JPEG images, adjust the compression quality using the TrackBar.
+  * For JPEG images, adjust the compression quality using the <code>TrackBar</code>.
 
-3. Save the Compressed Image:
+3. <b>Save the Compressed Image</b>:
 
-  * Click the "Save Image" button to save the compressed image.
+  * Click the <b>"Save Image"</b> button to save the compressed image.
 
-  * The compressed image will be saved with the original file name appended with -compressed.
+  * The compressed image will be saved with the original file name appended with <code>-compressed</code>.
 
 ## Code Overview
 ### Key Components
-- Image1: Displays the original image.
+- <code>Image1</code>: Displays the original image.
 
-- Image2: Displays the compressed image.
+- <code>Image2</code>: Displays the compressed image.
 
-- TrackBar1: Adjusts the compression quality for JPEG images.
+- <code>TrackBar1</code>: Adjusts the compression quality for JPEG images.
 
-- FOriginalFileName: Stores the file path of the original image.
+- <code>FOriginalFileName</code>: Stores the file path of the original image.
 
-- FCompressedImage: Stores the compressed image as a TPicture object.
+- <code>FCompressedImage</code>: Stores the compressed image as a <code>TPicture</code> object.
 
 ### Key Functions
-- btnOpenImageClick: Opens an image file and loads it into Image1.
+- <code>btnOpenImageClick</code>: Opens an image file and loads it into <code>Image1</code>.
 
-- btnCompressImageClick: Compresses the image and displays it in Image2.
+- <code>btnCompressImageClick</code>: Compresses the image and displays it in <code>Image2</code>.
 
-- btnSaveImageClick: Saves the compressed image to a file.
+- <code>btnSaveImageClick</code>: Saves the compressed image to a file.
 
-- TrackBar1Change: Updates the label to display the current compression quality.
+- <code>TrackBar1Change</code>: Updates the label to display the current compression quality.
 
 ## Future Improvements
-- Add Advanced Compression: Integrate external libraries (e.g., pngquant or OptiPNG) for better PNG compression.
+- <b>Add Advanced Compression</b>: Integrate external libraries (e.g., <code>pngquant</code> or <code>OptiPNG</code>) for better PNG compression.
 
-- Support More Formats: Add support for additional image formats (e.g., BMP, GIF).
+- <b>Support More Formats</b>: Add support for additional image formats (e.g., BMP, GIF).
 
-- Batch Processing: Allow users to compress multiple images at once.
+- <b>Batch Processing</b>: Allow users to compress multiple images at once.
 
