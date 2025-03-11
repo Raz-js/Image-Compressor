@@ -53,6 +53,8 @@ end;
 procedure TForm1.btnCompressImageClick(Sender: TObject);
 var
   PNGImage: TPngImage;
+  JPEGImage: TJPEGImage;
+  Bitmap: TBitmap;
 begin
   if FOriginalFileName = '' then
   begin
@@ -60,18 +62,44 @@ begin
     Exit;
   end;
 
-  PNGImage := TPngImage.Create;
-  try
-    PNGImage.LoadFromFile(FOriginalFileName);
+  if SameText(ExtractFileExt(FOriginalFileName), '.png') then
+  begin
+    PNGImage := TPngImage.Create;
+    try
+      PNGImage.LoadFromFile(FOriginalFileName);
+      Image2.Picture.Assign(PNGImage);
 
-    Image2.Picture.Assign(PNGImage);
+      if Assigned(FCompressedImage) then
+        FCompressedImage.Free;
+      FCompressedImage := TPicture.Create;
+      FCompressedImage.Assign(PNGImage);
+    finally
+      PNGImage.Free;
+    end;
+  end
+  else if SameText(ExtractFileExt(FOriginalFileName), '.jpg') or SameText(ExtractFileExt(FOriginalFileName), '.jpeg') then
+  begin
+    JPEGImage := TJPEGImage.Create;
+    Bitmap := TBitmap.Create;
+    try
+      Bitmap.LoadFromFile(FOriginalFileName);
+      JPEGImage.Assign(Bitmap);
+      JPEGImage.CompressionQuality := TrackBar1.Position;
+      Image2.Picture.Assign(JPEGImage);
 
-    if Assigned(FCompressedImage) then
-      FCompressedImage.Free;
-    FCompressedImage := TPicture.Create;
-    FCompressedImage.Assign(PNGImage);
-  finally
-    PNGImage.Free;
+      if Assigned(FCompressedImage) then
+        FCompressedImage.Free;
+      FCompressedImage := TPicture.Create;
+      FCompressedImage.Assign(JPEGImage);
+    finally
+      JPEGImage.Free;
+      Bitmap.Free;
+    end;
+  end
+  else
+  begin
+    ShowMessage('Unsupported image format. Please use PNG or JPEG.');
+    Exit;
   end;
 end;
 
@@ -99,9 +127,14 @@ begin
   begin
     FCompressedImage.Graphic.SaveToFile(SaveFileName);
   end
-  else
+  else if SameText(Ext, '.jpg') or SameText(Ext, '.jpeg') then
   begin
     FCompressedImage.Graphic.SaveToFile(SaveFileName);
+  end
+  else
+  begin
+    ShowMessage('Unsupported image format. Please use PNG or JPEG.');
+    Exit;
   end;
 
   ShowMessage('Image saved as: ' + SaveFileName);
