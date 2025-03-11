@@ -1,6 +1,8 @@
 # Image Compressor (By Raz)
 ###### This is a simple image compression tool built using Delphi (RAD Studio). It allows users to open an image, compress it, and save the compressed version. The program supports JPEG and PNG formats and preserves transparency for PNG images.
 
+<p align="center"> <img src="https://i.ibb.co/6Jp4vV1L/compressor.png" align="center" /> </p>
+
 ## How It Works
 1. Opening an Image
 -  The user clicks the <b>"Open Image"</b> button to select an image file (JPEG or PNG).
