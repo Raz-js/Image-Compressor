@@ -89,8 +89,8 @@
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_Keys>CompanyName=Raz Productions;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=Image Compressor By Raz;ProductVersion=1.0.0.0;Comments=Icon by iconsmind</VerInfo_Keys>
         <Icon_MainIcon>Project1_Icon.ico</Icon_MainIcon>
-        <UWP_DelphiLogo44>..\..\..\..\..\Downloads\photo_16603800.png</UWP_DelphiLogo44>
-        <UWP_DelphiLogo150>..\..\..\..\..\Downloads\photo_16603800.png</UWP_DelphiLogo150>
+        <UWP_DelphiLogo44>ImgComp.png</UWP_DelphiLogo44>
+        <UWP_DelphiLogo150>ImgComp.png</UWP_DelphiLogo150>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -102,7 +102,11 @@
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=Raz Productions;FileDescription=Image Compressor;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=Image Compressor By Raz;ProductVersion=1.0.0.0;Comments=Icon by iconsmind</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=Raz Productions;FileDescription=Image Compressor;FileVersion=1.0.0.1;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=Image Compressor By Raz;ProductVersion=1.0.0.1;Comments=Icon by iconsmind;Github Repo=https://github.com/Raz-js/Image-Compressor</VerInfo_Keys>
+        <VerInfo_Build>1</VerInfo_Build>
+        <Icon_MainIcon>ImageCompressor_Icon.ico</Icon_MainIcon>
+        <UWP_DelphiLogo44>ImgComp.png</UWP_DelphiLogo44>
+        <UWP_DelphiLogo150>ImgComp.png</UWP_DelphiLogo150>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
@@ -140,7 +144,7 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="4">
-                <DeployFile LocalName="..\..\..\..\..\Downloads\photo_16603800.png" Configuration="Debug" Class="UWP_DelphiLogo44">
+                <DeployFile LocalName="ImgComp.png" Configuration="Debug" Class="UWP_DelphiLogo44">
                     <Platform Name="Win32">
                         <RemoteDir>Assets\</RemoteDir>
                         <RemoteName>Logo44x44.png</RemoteName>
